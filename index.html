@@ -11,7 +11,7 @@
 
 </head>
 <body>
-    <header class="header">
+    <!--<header class="header">
         <a href="#" class="logo"><i class="fas fa-hiking"></i> travel.com</a>
         <nav class="navbar">
             <div id="nav-close" class="fas fa-times"></div>
@@ -25,7 +25,50 @@
             <div id="search-btn" class="fas fa-search"></div>
           
         </div>
-    </header>
+    </header> -->
+<!-- Include Okta Auth SDK -->
+<script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-auth-js/5.3.2/okta-auth-js.min.js" type="text/javascript"> </script>
+
+<script type="text/javascript">
+    // Initialize OKTA Authentication
+    const oktaAuth = new OktaAuth({
+        issuer: 'https://your_okta_domain.okta.com/oauth2/default',
+        clientId: 'your_client_id',
+        redirectUri: window.location.origin + '/callback', // Replace with your callback URL
+        scopes: ['openid', 'profile', 'email'],
+    });
+
+    // Check Authentication Status
+    async function checkAuthentication() {
+        const isAuthenticated = await oktaAuth.tokenManager.get('accessToken');
+
+        if (!isAuthenticated) {
+            // Redirect to OKTA login page
+            window.location.href = '/login'; // Replace with your login page URL
+        }
+    }
+
+    // Handle Callback and Parse Tokens
+    async function handleCallback() {
+        if (window.location.pathname === '/callback') {
+            const tokens = await oktaAuth.token.parseFromUrl();
+            tokens.forEach(token => {
+                if (token.idToken) {
+                    oktaAuth.tokenManager.add('idToken', token);
+                }
+                if (token.accessToken) {
+                    oktaAuth.tokenManager.add('accessToken', token);
+                }
+            });
+            window.location.href = '/'; // Redirect to the home page or another authenticated route
+        }
+    }
+
+    // Call the functions to check authentication status and handle callback
+    checkAuthentication();
+    handleCallback();
+</script>
+
 
     <div class="search-form">
         <div id="close-search" class="fas fa-times"></div>
@@ -43,8 +86,8 @@
                 <div class="content">
                     <span>never stop</span>
                     <h3>exploring</h3>
-                    <p>Travel.com offers best deals on India tour packages.</p>
-                    <a href="#category" class="btn">get started</a>
+                   <!-- <p>Travel.com offers best deals on India tour packages.</p>
+                    <a href="#category" class="btn">get started</a>-->
                 </div>
                 </div>  
         </div>
@@ -52,7 +95,7 @@
 
     <!-- Adventure section -->
 
-    <section class="category" id="category">
+  <!--  <section class="category" id="category">
 
         <h1 class="heading">Adventure Idea!</h1>
     
@@ -81,8 +124,8 @@
     
         </div>
     
-    </section>
-    <section class="packages" id="packages">
+    </section> -->
+    <!-- <section class="packages" id="packages">
 
         <h1 class="heading">popular packages</h1>
     
@@ -167,7 +210,7 @@
     
         </div>
     
-    </section>
+    </section> 
     <section class="contact" id="contact">
     
     <div class="wrapper1">
@@ -191,41 +234,46 @@
         </div>
         </div> 
     
-    </section>
+    </section>-->
     <section class="footer">
 
         <div class="box-container">
     
-            <div class="box">
-                <h3>Quick links</h3>
-                <a href="#home">home</a>    
-                <a href="#packages">packages</a>
-                <a href="#query">query</a>
-            </div>
+            
+    
+      
     
             <div class="box">
-                <h3>extra links</h3>
-                <a href="#contact">ask questions</a>
-                <a href="#">terms of use</a>
-                <a href="#">privacy policy</a>
-            </div>
-    
-            <div class="box">
-                <h3>contact info</h3>
+               <!-- <h3>contact info</h3>
                 <a href="tel:+918115585868"> <i class="fas fa-phone"></i> +91 8115585868 </a>
                 <a href="mailto: yashsrivastav8115@gmail.com"> <i class="fas fa-envelope"></i> yashsrivastav8115@gmail.com </a>
-                <a href="#"> <i class="fas fa-map"></i> Lucknow, india - 226010 </a>
+                <a href="#"> <i class="fas fa-map"></i> Lucknow, india - 226010 </a>-->
             </div>
     
-            <div class="box">
-                <h3>follow us</h3>
-                <a href="https://www.facebook.com/yash.srivastav0"> <i class="fab fa-facebook-f"></i> facebook </a>
-                <a href="https://www.instagram.com/yash_srivastav_"> <i class="fab fa-instagram"></i> instagram </a>
-                <a href="https://www.linkedin.com/in/yash-srivastav/"> <i class="fab fa-linkedin"></i> linkedin </a>
-                <a href="https://github.com/Yash-srivastav16"> <i class="fab fa-github"></i> github </a>
+            
+
+                <script src="https://dev175885.service-now.com/scripts/sn_csm_ec.js?v=5.5"></script>
+                <script>
+                    const samlAssertion = "your_saml_assertion_here";
+                SN_CSM_EC.init({
+                    moduleID: "https://dev175885.service-now.com/#6246e8d6474331104c5e379bd36d43d7",
+                    loadFeature: SN_CSM_EC.loadEMFeature(),
+                    ssoToken: samlAssertion
+                    
+                });
+                
+                
+                
+                /* Call SN_CSM_EC.onLogin() function to start the user session in the Engagement Messenger automatically when the user logs in to the main portal */
+                /* Call SN_CSM_EC.onLogout() function to terminate the user session in the Engagement Messenger automatically when the user logs out from the main portal */
+                </script>
+                <!-- <a href="https://www.facebook.com/yash.srivastav0"> <i class="fab fa-facebook-f"></i> facebook </a>-->
+                <!-- <a href="https://www.instagram.com/yash_srivastav_"> <i class="fab fa-instagram"></i> instagram </a>-->
+                <!--<a href="https://www.linkedin.com/in/yash-srivastav/"> <i class="fab fa-linkedin"></i> linkedin </a>-->
+                <!--<a href="https://github.com/Yash-srivastav16"> <i class="fab fa-github"></i> github </a>-->
             </div>
         </div>
-        <div class="credit">created by <span>yash srivastav</span> | all rights reserved!</div>
+        <div class="credit">created by <span>Mohamed Zidane</span> | all rights reserved!</div>
     </section>
     <!-- footer section ends -->
     <script src="js/script.js"></script>
