@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Login Page</title>
+</head>
+<body>
+    <h1>Basic Login Page</h1>
+
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="authenticateUser()">Login</button>
+    </form>
+
+    <script type="text/javascript">
+        function authenticateUser() {
+            // Replace the following with your authentication logic
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Example: Check if the username and password are valid
+            if (username === 'mohamed.zidane@orange.com' && password === '123') {
+                alert('Login successful!');
+                window.location.href = 'index.html';
+                // Redirect to another page or perform additional actions after successful login
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
