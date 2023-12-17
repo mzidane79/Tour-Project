@@ -23,6 +23,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Call the function to display user information
     displayUserInfo();
-    console.log('index.js script executed');
 
 });
