@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var appClientID = "0oadvrpixrp4jsDvz5d7";
 
     // Bootstrap the AuthJS Client
-    const authClient = new OktaAuth({ url: baseOktaURL, clientId: appClientID, redirectUri: "http://127.0.0.1:5500/index.html", issuer: baseOktaURL, scope: ['openid', 'profile', 'email'] });
+    const authClient = new OktaAuth({ url: baseOktaURL, clientId: appClientID, redirectUri: "https://mzidane79.github.io/Tour-Project/index.html", issuer: baseOktaURL, scope: ['openid', 'profile', 'email'] });
 
     // Event listener for the button click
     document.getElementById('loginButton').addEventListener('click', function () {
