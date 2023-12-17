@@ -1,3 +1,5 @@
+console.log('index.js script executed');
+
 document.addEventListener('DOMContentLoaded', function () {
     // Function to parse and display user information
     function displayUserInfo() {
