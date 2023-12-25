@@ -29,7 +29,7 @@ function displayUserInfo() {
         userInfoContainer.innerHTML = '<p>User is not authenticated. Please login first.</p>';
     }
 }
-
+console.log(authClient.tokenManager.getTokens());
 // Event listener for the "Get User Info" button click
 document.getElementById('getUserInfoButton').addEventListener('click', displayUserInfo);
 
