@@ -33,6 +33,9 @@ console.log('Index JS inside user function');
         userInfoContainer.innerHTML = '<p>User is not authenticated. Please login first.</p>';
     }
 }
+console.log ('trying to get the token automatically');
+console.log(authClient.tokenManager.getTokens());
+console.log ('trying to get the token manually');
 console.log(idToken);
 // Event listener for the "Get User Info" button click
 document.getElementById('getUserInfoButton').addEventListener('click', displayUserInfo);
