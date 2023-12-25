@@ -1,3 +1,4 @@
+console.log('Hi From login JS');
 // Event listener for the button click
 document.addEventListener('DOMContentLoaded', function () {
     // OktaAuth is now defined
