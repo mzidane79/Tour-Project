@@ -1,41 +1,29 @@
-// index.js
-
+// Event listener for the button click
 document.addEventListener('DOMContentLoaded', function () {
     // Function to get user information from Okta
     function getUserInfo() {
-        // Initialize the OktaAuth client
-        const authClient = new OktaAuth({
-            url: "https://dev-16407622.okta.com", // Update with your Okta URL
-            clientId: "0oadvrpixrp4jsDvz5d7", // Update with your Okta client ID
-            redirectUri: "https://mzidane79.github.io/Tour-Project/index.html", // Update with your redirect URI
-            issuer: "https://dev-16407622.okta.com", // Update with your Okta issuer
-            scope: ['openid', 'profile', 'email']
-        });
+        const userInfoContainer = document.getElementById('userInfo');
 
-        // Get the user information
-        authClient.token.getUserInfo()
-            .then(userInfo => {
-                // Display user information in the userInfo div
-                const userInfoDiv = document.getElementById('userInfo');
-                userInfoDiv.innerHTML = `
-                    <p><strong>User ID:</strong> ${userInfo.sub}</p>
-                    <p><strong>Email:</strong> ${userInfo.email}</p>
-                    <p><strong>Name:</strong> ${userInfo.name}</p>
-                `;
-            })
-            .catch(error => {
-                console.error('Error fetching user information:', error);
-            });
+        // Check if the user is authenticated
+        if (authClient.token.hasTokensInUrl()) {
+            // Parse the tokens from the URL
+            authClient.token.parseFromUrl()
+                .then(data => {
+                    const idToken = data.tokens.idToken;
+
+                    // Display user information
+                    userInfoContainer.innerHTML = `<p>User Info:</p>
+                                                   <p>Name: ${idToken.claims.name}</p>
+                                                   <p>Email: ${idToken.claims.email}</p>`;
+                })
+                .catch(error => {
+                    console.error('Error parsing tokens:', error);
+                });
+        } else {
+            userInfoContainer.innerHTML = '<p>User is not authenticated. Please login first.</p>';
+        }
     }
 
-    // Event listener for the button click
-    document.getElementById('loginButton').addEventListener('click', function () {
-        // Redirect to Okta for authentication
-        authClient.token.getWithRedirect({
-            responseType: ['id_token']
-        });
-    });
-
-    // Event listener for the button click to get user information
+    // Event listener for the "Get User Info" button click
     document.getElementById('getUserInfoButton').addEventListener('click', getUserInfo);
 });
