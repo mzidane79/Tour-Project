@@ -19,11 +19,11 @@ SN_CSM_EC.init({
 console.log('Index JS start the user function');
 function displayUserInfo() {
     const userInfoContainer = document.getElementById('userInfo');
-
+console.log('Index JS inside user function 1');
     // Check if the user is authenticated
     if (authClient.tokenManager.get('idToken')) {
         const idToken = authClient.tokenManager.get('idToken');
-console.log('Index JS inside user function');
+console.log('Index JS inside user function 2');
         console.log(idToken);
         // Display user information
         userInfoContainer.innerHTML = `<p>User Info:</p>
