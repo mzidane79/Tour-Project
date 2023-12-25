@@ -14,8 +14,7 @@ SN_CSM_EC.init({
     moduleID: "https://dev175885.service-now.com/#6246e8d6474331104c5e379bd36d43d7",
     loadFeature: SN_CSM_EC.loadEMFeature()
     });
-// Event listener for the "Get User Info" button click
-document.getElementById('getUserInfoButton').addEventListener('click', displayUserInfo);
+
 // Function to display user information
 console.log('Index JS start the user function');
 function displayUserInfo() {
@@ -41,3 +40,5 @@ console.log(authClient.tokenManager.getTokens());
 
 // Automatically display user information on page load
 displayUserInfo();
+// Event listener for the "Get User Info" button click
+document.getElementById('getUserInfoButton').addEventListener('click', displayUserInfo);
