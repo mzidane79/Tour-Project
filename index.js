@@ -11,13 +11,10 @@ const authClient = new OktaAuth({
 });
 console.log('after defining the const');
 // Initialize the Engagement Messenger
-SN_CSM_EC.init(
-    {
+SN_CSM_EC.init({
     moduleID: "https://dev175885.service-now.com/#6246e8d6474331104c5e379bd36d43d7",
     loadFeature: SN_CSM_EC.loadEMFeature()
-    }
-    console.log('defining the INIT');
-            );
+    });
 
 // Function to display user information
 console.log('Index JS start the user function');
