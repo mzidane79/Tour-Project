@@ -16,13 +16,15 @@ SN_CSM_EC.init({
 });
 
 // Function to display user information
+console.log('Index JS start the user function');
 function displayUserInfo() {
     const userInfoContainer = document.getElementById('userInfo');
 
     // Check if the user is authenticated
     if (authClient.tokenManager.get('idToken')) {
         const idToken = authClient.tokenManager.get('idToken');
-
+console.log('Index JS inside user function');
+        console.log(idToken);
         // Display user information
         userInfoContainer.innerHTML = `<p>User Info:</p>
                                        <p>Name: ${idToken.claims.name}</p>
@@ -31,7 +33,7 @@ function displayUserInfo() {
         userInfoContainer.innerHTML = '<p>User is not authenticated. Please login first.</p>';
     }
 }
-console.log(authClient.tokenManager.getTokens());
+console.log(idToken);
 // Event listener for the "Get User Info" button click
 document.getElementById('getUserInfoButton').addEventListener('click', displayUserInfo);
 
