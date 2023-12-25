@@ -1,4 +1,4 @@
-console.log('Hello from index JS');
+console.log('Hello 1 from index JS');
 
 // Bootstrap the AuthJS Client
 const authClient = new OktaAuth({
@@ -16,6 +16,8 @@ SN_CSM_EC.init({
 });
 
 // Function to display user information
+console.log('Index JS start the user function');
+
 function displayUserInfo() {
     const userInfoContainer = document.getElementById('userInfo');
 
@@ -23,15 +25,24 @@ function displayUserInfo() {
     if (authClient.tokenManager.get('idToken')) {
         const idToken = authClient.tokenManager.get('idToken');
 
-        // Display user information
-        userInfoContainer.innerHTML = `<p>User Info:</p>
-                                       <p>Name: ${idToken.claims.name}</p>
-                                       <p>Email: ${idToken.claims.email}</p>`;
+        // Check if idToken and its claims are defined
+        if (idToken && idToken.claims) {
+            // Display user information
+            userInfoContainer.innerHTML = `<p>User Info:</p>
+                                           <p>Name: ${idToken.claims.name || 'N/A'}</p>
+                                           <p>Email: ${idToken.claims.email || 'N/A'}</p>`;
+        } else {
+            userInfoContainer.innerHTML = '<p>User claims are not available.</p>';
+            console.log('Error: User claims are not available.');
+        }
     } else {
         userInfoContainer.innerHTML = '<p>User is not authenticated. Please login first.</p>';
-        console.log('Error generating token');
+        console.log('Error: User is not authenticated.');
     }
 }
+
+console.log('trying to get the token automatically');
+console.log(authClient.tokenManager.getTokens());
 
 // Automatically display user information on page load
 displayUserInfo();
