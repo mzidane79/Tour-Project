@@ -42,7 +42,7 @@ console.log('trying to get the token automatically');
 console.log(authClient.tokenManager.getTokens());
 
 // Event listener for the "Get User Info" button click
-document.getElementById('getUserInfoButton').addEventListener('click', function () {
+//document.getElementById('getUserInfoButton').addEventListener('click', function () {
     // Call the displayUserInfo function again when the button is clicked
     displayUserInfo();
 });
