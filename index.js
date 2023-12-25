@@ -1,4 +1,4 @@
-console.log('Hello 1';
+console.log('Hello 1 from index JS');
 
 // Bootstrap the AuthJS Client
 const authClient = new OktaAuth({
