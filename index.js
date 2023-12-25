@@ -17,6 +17,9 @@ SN_CSM_EC.init({
 
 // Function to display user information
 console.log('Index JS start the user function');
+const idToken = authClient.tokenManager.get('idToken');
+console.log('idToken:', idToken);
+
 function displayUserInfo() {
     const userInfoContainer = document.getElementById('userInfo');
 console.log('Index JS inside user function 1');
