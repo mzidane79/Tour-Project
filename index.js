@@ -1,3 +1,5 @@
+console.log('Hello 1';
+
 // Bootstrap the AuthJS Client
 const authClient = new OktaAuth({
     url: "https://dev-16407622.okta.com",
