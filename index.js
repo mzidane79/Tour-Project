@@ -18,32 +18,34 @@ SN_CSM_EC.init({
 // Function to display user information
 console.log('Index JS start the user function');
 
-// Use the 'then' method to handle the resolved value of the Promise
-authClient.tokenManager.get('idToken')
-    .then(idToken => {
-        console.log('idToken:', idToken);
-
-        // Display user information
+function displayUserInfo() {
+    // Check if the DOM is fully loaded
+    if (document.readyState === 'complete') {
         const userInfoContainer = document.getElementById('userInfo');
-        if (idToken) {
+        console.log('Index JS inside user function 1');
+
+        // Check if the user is authenticated
+        if (authClient.tokenManager.get('idToken')) {
+            const idToken = authClient.tokenManager.get('idToken');
+
+            // Display user information
             userInfoContainer.innerHTML = `<p>User Info:</p>
                                            <p>Name: ${idToken.claims.name}</p>
                                            <p>Email: ${idToken.claims.email}</p>`;
         } else {
             userInfoContainer.innerHTML = '<p>User is not authenticated. Please login first.</p>';
-            console.error('ERROR generating token');
+            console.log('ERROR generating token');
         }
-    })
-    .catch(error => {
-        console.error('Error retrieving idToken:', error);
-    });
+    }
+}
 
-console.log('trying to get the token automatically');
-console.log(authClient.tokenManager.getTokens());
+// Automatically display user information on page load
+displayUserInfo();
 
 // Event listener for the "Get User Info" button click
-//document.getElementById('getUserInfoButton').addEventListener('click', function () {
-    // Call the displayUserInfo function again when the button is clicked
-  //  displayUserInfo();
-//}
-//);
+document.addEventListener('DOMContentLoaded', function () {
+    const getUserInfoButton = document.getElementById('getUserInfoButton');
+    if (getUserInfoButton) {
+        getUserInfoButton.addEventListener('click', displayUserInfo);
+    }
+});
