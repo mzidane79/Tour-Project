@@ -7,13 +7,12 @@
 
     <!-- Include the ServiceNow Engagement Messenger script -->
     <script src="https://dev175885.service-now.com/scripts/sn_csm_ec.js?v=5.5"></script>
-    <script src="https://global.oktacdn.com/okta-auth-js/6.1.0/okta-auth-js.min.js" type="text/javascript"></script>
-    <script src="index.js" type="text/javascript"></script>
     <script>
-        // Initialize the Engagement Messenger
+        // Initialize the Engagement Messenger for SAML
         SN_CSM_EC.init({
             moduleID: "https://dev175885.service-now.com/#6246e8d6474331104c5e379bd36d43d7",
-            loadFeature: SN_CSM_EC.loadEMFeature()
+            loadFeature: false,
+            authType: "saml"
         });
     </script>
 </head>
@@ -23,11 +22,9 @@
     <!-- Content of your page -->
 
     <!-- You can include a button or element to launch the Engagement Messenger if needed -->
-    <button type="button" onclick="SN_CSM_EC.onLogin()">Launch Engagement Messenger</button>
-    <button type="button" id="getUserInfoButton">Get User Info</button>
+    <button type="button" onclick="SN_CSM_EC.onLoginSAML()">Launch Engagement Messenger</button>
 
-      <!-- Display user information here -->
+    <!-- Display user information here -->
     <div id="userInfo"></div>
 </body>
 </html>
-
