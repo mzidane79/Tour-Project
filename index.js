@@ -7,9 +7,9 @@ const authClient = new OktaAuth({
     redirectUri: "https://mzidane79.github.io/Tour-Project/index.html",
     issuer: "https://dev-16407622.okta.com",
     scope: ['openid', 'profile', 'email']
-    console.log('defining the const');
+    
 });
-
+console.log('after defining the const');
 // Initialize the Engagement Messenger
 SN_CSM_EC.init(
     {
