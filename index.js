@@ -31,6 +31,7 @@ console.log('Index JS inside user function');
                                        <p>Email: ${idToken.claims.email}</p>`;
     } else {
         userInfoContainer.innerHTML = '<p>User is not authenticated. Please login first.</p>';
+        console.log('ERROR generating token');
     }
 }
 console.log ('trying to get the token automatically');
