@@ -1,31 +1,29 @@
-// Bootstrap the AuthJS Client
-const authClient = new OktaAuth({
-    url: "https://dev-16407622.okta.com",
-    clientId: "0oadvrpixrp4jsDvz5d7",
-    redirectUri: "https://mzidane79.github.io/Tour-Project/index.html",
-    issuer: "https://dev-16407622.okta.com",
-    scope: ['openid', 'profile', 'email']
-});
+console.log('index.js script executed');
 
-// Initialize the Engagement Messenger
-SN_CSM_EC.init({
-    moduleID: "https://dev175885.service-now.com/#6246e8d6474331104c5e379bd36d43d7",
-    loadFeature: SN_CSM_EC.loadEMFeature()
-});
+document.addEventListener('DOMContentLoaded', function () {
+    // Function to parse and display user information
+    function displayUserInfo() {
+        // Get the ID token from the URL
+        const idToken = new URLSearchParams(window.location.hash).get('id_token');
 
-// Event listener for the "Get User Info" button click
-document.getElementById('getUserInfoButton').addEventListener('click', function () {
-    const userInfoContainer = document.getElementById('userInfo');
+        if (idToken) {
+            // Parse the ID token
+            const parsedToken = JSON.parse(atob(idToken.split('.')[1]));
 
-    // Check if the user is authenticated
-    if (authClient.tokenManager.get('idToken')) {
-        const idToken = authClient.tokenManager.get('idToken');
-
-        // Display user information
-        userInfoContainer.innerHTML = `<p>User Info:</p>
-                                       <p>Name: ${idToken.claims.name}</p>
-                                       <p>Email: ${idToken.claims.email}</p>`;
-    } else {
-        userInfoContainer.innerHTML = '<p>User is not authenticated. Please login first.</p>';
+            // Display user information
+            const userInfoContainer = document.getElementById('userInfo');
+            userInfoContainer.innerHTML = `
+                <h2>User Information</h2>
+                <p>Name: ${parsedToken.name}</p>
+                <p>Email: ${parsedToken.email}</p>
+                <p>Sub: ${parsedToken.sub}</p>
+            `;
+        } else {
+            console.error('ID token not found in the URL.');
+        }
     }
+
+    // Call the function to display user information
+    displayUserInfo();
+
 });
