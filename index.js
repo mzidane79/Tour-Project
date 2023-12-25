@@ -45,4 +45,5 @@ console.log(authClient.tokenManager.getTokens());
 //document.getElementById('getUserInfoButton').addEventListener('click', function () {
     // Call the displayUserInfo function again when the button is clicked
     displayUserInfo();
-});
+//}
+//);
