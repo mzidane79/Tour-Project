@@ -9,6 +9,13 @@
     <script src="https://dev175885.service-now.com/scripts/sn_csm_ec.js?v=5.5"></script>
     <script src="https://global.oktacdn.com/okta-auth-js/6.1.0/okta-auth-js.min.js" type="text/javascript"></script>
     <script src="index.js" type="text/javascript"></script>
+    <script>
+        // Initialize the Engagement Messenger
+        SN_CSM_EC.init({
+            moduleID: "https://dev175885.service-now.com/#6246e8d6474331104c5e379bd36d43d7",
+            loadFeature: SN_CSM_EC.loadEMFeature()
+        });
+    </script>
 </head>
 <body>
     <h1>Welcome to Engagement Messenger</h1>
@@ -20,8 +27,6 @@
 
     <!-- Display user information here -->
     <div id="userInfo"></div>
-
-    <!-- Button to get user information -->
-    <button type="button" id="getUserInfoButton">Get User Info</button>
 </body>
 </html>
+
