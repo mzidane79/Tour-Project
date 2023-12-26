@@ -11,5 +11,5 @@ document.addEventListener('DOMContentLoaded', function () {
             responseType: ['id_token']
         });
     });
-console.log(authClient.token.getUserInfo.caller);
+//console.log(authClient.token.getUserInfo.caller);
 });
