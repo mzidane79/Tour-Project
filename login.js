@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const authClient = new OktaAuth({
         url: baseOktaURL,
         clientId: appClientID,
-        redirectUri: "https://your-redirect-uri.com",
+        redirectUri: "https://mzidane79.github.io/Tour-Project/engagement_messenger.html",
         issuer: baseOktaURL,
         scope: ['openid', 'profile', 'email']
     });
