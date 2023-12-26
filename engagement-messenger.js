@@ -9,7 +9,7 @@ const authClient = new OktaAuth({
 
 // Initialize the Engagement Messenger
 SN_CSM_EC.init({
-    moduleID: "https://dev175885.service-now.com//#your-engagement-messenger-module-id",
+    moduleID: "https://dev175885.service-now.com//#6246e8d6474331104c5e379bd36d43d7",
     loadFeature: SN_CSM_EC.loadEMFeature()
 });
 
