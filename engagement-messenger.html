@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Messenger Page</title>
+
+    <!-- Include the ServiceNow Engagement Messenger script -->
+    <script src="https://https://dev175885.service-now.com//scripts/sn_csm_ec.js"></script>
+    <script src="https://global.oktacdn.com/okta-auth-js/6.1.0/okta-auth-js.min.js"></script>
+    <!-- Include the engagement-messenger.js file -->
+    <script src="engagement-messenger.js"></script>
+</head>
+<body>
+    <h1>Welcome to Engagement Messenger</h1>
+
+    <!-- Content of your page -->
+
+    <!-- You can include a button or element to launch the Engagement Messenger if needed -->
+    <button type="button" onclick="SN_CSM_EC.onLoginSAML()">Launch Engagement Messenger</button>
+
+    <!-- Display user information here -->
+    <div id="userInfo"></div>
+</body>
+</html>
