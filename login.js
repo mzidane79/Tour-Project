@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     // OktaAuth is now defined
     // UPDATE THESE FOR YOUR OKTA TENANT
-    var baseOktaURL = "https://your-okta-domain.okta.com";
-    var appClientID = "your-app-client-id";
+    var baseOktaURL = "https://dev-16407622.okta.com";
+    var appClientID = "0oadvrpixrp4jsDvz5d7";
 
     // Bootstrap the AuthJS Client
     const authClient = new OktaAuth({
