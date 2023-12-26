@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Bootstrap the AuthJS Client
     const authClient = new OktaAuth({ url: baseOktaURL, clientId: appClientID, redirectUri: "https://mzidane79.github.io/Tour-Project/index.html", issuer: baseOktaURL, scope: ['openid', 'profile', 'email'] });
-
+    console.log(appClientID);
     // Event listener for the button click
     document.getElementById('loginButton').addEventListener('click', function () {
         // Redirect to Okta for authentication
