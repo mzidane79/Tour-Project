@@ -2,7 +2,7 @@
 const authClient = new OktaAuth({
     url: "https://dev-16407622.okta.com",
     clientId: "0oadvrpixrp4jsDvz5d7",
-    redirectUri: "https://your-redirect-uri.com",
+    redirectUri: "https://mzidane79.github.io/Tour-Project/index.html",
     issuer: "https://dev-16407622.okta.com",
     scope: ['openid', 'profile', 'email']
 });
