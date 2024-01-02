@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiceNow Messenger Integration</title>
+    
+    <!-- Include required ServiceNow scripts -->
+    <script src="https://sandbox.unifydesk.orange-business.com/scripts/js_includes_ux.js"></script>
+
+    <!-- Add your custom scripts here -->
+    <script>
+        // Function to initialize ServiceNow Engagement Messenger
+        function initializeMessenger() {
+            // Replace 'YOUR_INSTANCE_NAME' with your ServiceNow instance name
+            var instanceName = 'YOUR_INSTANCE_NAME';
+            
+            // Initialize ServiceNow Messenger
+            SN.connect.init(instanceName, {
+                useUniversalLogin: false, // Set to true if using Universal Login
+                autoLogin: true, // Set to true if you want to automatically log in the user
+                onLogin: function() {
+                    console.log('User logged in successfully');
+                    // Add any additional logic after successful login
+                }
+            });
+        }
+
+        // Trigger initialization when the page is loaded
+        window.onload = function() {
+            initializeMessenger();
+        };
+    </script>
+</head>
+<body>
+    <!-- Your page content goes here -->
+
+    <!-- Example: Display a button to open the messenger -->
+    <button onclick="SN.connect.openMessenger()">Open Messenger</button>
+</body>
+</html>
