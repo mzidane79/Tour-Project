@@ -3,39 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ServiceNow Messenger Integration</title>
-    
-    <!-- Include required ServiceNow scripts -->
-    <script src="https://sandbox.unifydesk.orange-business.com/scripts/js_includes_ux.js"></script>
-
-    <!-- Add your custom scripts here -->
-    <script>
-        // Function to initialize ServiceNow Engagement Messenger
-        function initializeMessenger() {
-            // Replace 'YOUR_INSTANCE_NAME' with your ServiceNow instance name
-            var instanceName = 'https://sandbox.unifydesk.orange-business.com';
-            
-            // Initialize ServiceNow Messenger
-            SN.connect.init(instanceName, {
-                useUniversalLogin: false, // Set to true if using Universal Login
-                autoLogin: true, // Set to true if you want to automatically log in the user
-                onLogin: function() {
-                    console.log('User logged in successfully');
-                    // Add any additional logic after successful login
-                }
-            });
-        }
-
-        // Trigger initialization when the page is loaded
-        window.onload = function() {
-            initializeMessenger();
-        };
-    </script>
+    <title>ServiceNow Engagement Messenger</title>
+    <!-- Include ServiceNow Engagement Messenger script -->
+    <script src="https://sandbox.unifydesk.orange-business.com/scripts/sn_csm_ec.js?v=5.5"></script>
 </head>
 <body>
-    <!-- Your page content goes here -->
 
-    <!-- Example: Display a button to open the messenger -->
-    <button onclick="SN.connect.openMessenger()">Open Messenger</button>
+<button onclick="launchEngagementMessenger()">Launch Engagement Messenger</button>
+
+<script>
+// Static variables for the token URL configuration
+const clientId = 'IdSJ1vvGT6UImIiaodL5Jt0H87Xy6e7q';
+const clientSecret = '8LJqeiSDbiNSAF2y';
+const tokenEndpoint = 'https://inside01.api.intraorange/oauth/v3/token';
+
+// Function to launch Engagement Messenger
+function launchEngagementMessenger() {
+    // Initialize Engagement Messenger
+    SN_CSM_EC.init({
+        moduleID: "https://sandbox.unifydesk.orange-business.com/#b76e4cbe875bbd106a00a8a40cbb35fa",
+        loadFeature: SN_CSM_EC.loadEMFeature(),
+        tokenCallBack: getTokenCallBack 
+    });
+
+    // Call SN_CSM_EC.onLogin() to start the user session in the Engagement Messenger automatically when the user logs in to the main portal
+    // Call SN_CSM_EC.onLogout() to terminate the user session in the Engagement Messenger automatically when the user logs out from the main portal
+}
+
+// Token callback function
+function getTokenCallBack() {
+    let idToken;
+
+    // Example: Call a function to generate the token (replace this with your actual token generation logic)
+    idToken = generateToken();
+
+    return Promise.resolve(idToken); 
+}
+
+// Example token generation function (replace with your actual token generation logic)
+function generateToken() {
+    // Your token generation logic here (e.g., using Fetch API to get a token from a server)
+    return fetch(tokenEndpoint, {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret),
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+        },
+        body: 'grant_type=client_credentials'
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Assuming the token is in the 'access_token' field of the response
+        return data.access_token;
+    })
+    .catch(error => {
+        console.error('Error fetching token:', error);
+    });
+}
+</script>
+
 </body>
 </html>
