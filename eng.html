@@ -31,8 +31,8 @@ function launchEngagementMessenger() {
 }
 
 // Token callback function
-function getTokenCallBack() {
-    let idToken;
+//function getTokenCallBack() {
+ //   let idToken;
 
     // Example: Call a function to generate the token (replace this with your actual token generation logic)
     //generateToken()
@@ -42,26 +42,26 @@ function getTokenCallBack() {
         //.catch(error => {
          //   console.error('Error fetching token:', error);
         //});
-}
+//}
 
 // Example token generation function (replace with your actual token generation logic)
-function generateToken() {
+//function generateToken() {
     // Your token generation logic here (e.g., using Fetch API to get a token from a server)
-    return fetch(tokenEndpoint, {
-        method: 'POST',
-        headers: {
-            'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret),
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'application/json'
-        },
-        body: 'grant_type=client_credentials'
-    })
-    .then(response => response.json())
-    .then(data => {
+  //  return fetch(tokenEndpoint, {
+    //    method: 'POST',
+      //  headers: {
+        //    'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret),
+          //  'Content-Type': 'application/x-www-form-urlencoded',
+           // 'Accept': 'application/json'
+       // },
+       // body: 'grant_type=client_credentials'
+   // })
+   // .then(response => response.json())
+   // .then(data => {
         // Assuming the token is in the 'access_token' field of the response
-        return data.access_token;
-    });
-}
+     //   return data.access_token;
+ //   });
+//}
 </script>
 
 </body>
