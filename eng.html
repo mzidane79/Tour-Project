@@ -25,6 +25,7 @@ function launchEngagementMessenger() {
         loadFeature: SN_CSM_EC.loadEMFeature(),
         tokenCallBack: getTokenCallBack 
     });
+    SN_CSM_EC.onLogin();
 
     // Call SN_CSM_EC.onLogin() to start the user session in the Engagement Messenger automatically when the user logs in to the main portal
     // Call SN_CSM_EC.onLogout() to terminate the user session in the Engagement Messenger automatically when the user logs out from the main portal
