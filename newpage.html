@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #top-section {
+            background: url('bannerblue.jpg') center/cover;
+            color: white;
+            text-align: center;
+            padding: 20px 20px 100px 20px;
+            position: relative;
+        }
+
+        #logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        #name-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+        }
+
+        #name-container img {
+            width: 50px; /* Adjust the width of the photo */
+            border-radius: 50%; /* Add a circular border to the photo */
+            margin-right: 10px; /* Add some space between the photo and text */
+        }
+
+        #search-container {
+            margin-top: 20px;
+            text-align: center; /* Center the content horizontally */
+            display: flex;
+            justify-content: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+        }
+
+        #search-container input[type="text"] {
+            width: 400px; /* Set the desired width for the input field */
+            height: 20px; /* Set the desired height for the input field */
+            padding: 5px; /* Adjust padding as needed */
+            margin-right: 5px; /* Add some space between the input and button */
+        }
+
+        #search-container button {
+            width: 30px; /* Adjust the width of the button */
+            height: 30px; /* Set the desired height for the button */
+            padding: 0; /* Remove padding */
+            background-color: orange; /* Change the background color to orange */
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        #search-container button::before {
+            content: "\1F50D"; /* Unicode for the search icon */
+            font-size: 18px; /* Adjust the icon size */
+            line-height: 30px; /* Center the icon vertically */
+        }
+
+        #middle-section {
+            padding: 40px;
+            text-align: center; /* Center the content horizontally */
+        }
+
+        table {
+            width: 40%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid #8F8F8F; /* Make the table borders more visible */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Section -->
+    <div id="top-section">
+        <!-- Company Logo -->
+        <div id="logo-container">
+            <img src="orange.jpg" alt="Company Logo" width="100">
+        </div>
+        <!-- Name and Photo -->
+        <div id="name-container">
+            <p>Mohamed Zidane</p>
+            <img src="Mohamed_Zidane.jpg" alt="Your Photo">
+        </div>
+        <h1>Hi, welcome to your portal,<br>how can I help you?</h1>
+        <div id="search-container">
+            <input type="text" placeholder="Search...">
+            <button type="submit"></button>
+        </div>
+    </div>
+
+    <!-- Middle Section -->
+    <div id="middle-section">
+        <h2>List of Cases</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>My Cases</th>
+                    <th>Description</th>
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Populate the table with data -->
+                <tr>
+                    <td>CS1234444</td>
+                    <td>Connection is down</td>
+                    <!-- Add more rows as needed -->
+                </tr>
+                <tr>
+                    <td>CS5678888</td>
+                    <td>Software update required</td>
+                </tr>
+                <tr>
+                    <td>CS9876543</td>
+                    <td>Network latency issue</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>List of Changes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>My Changes</th>
+                    <th>Description</th>
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Populate the table with data -->
+                <tr>
+                    <td>CHG12345</td>
+                    <td>Please reset my password</td>
+                    <!-- Add more rows as needed -->
+                </tr>
+                <tr>
+                    <td>CHG67890</td>
+                    <td>Install security patches</td>
+                </tr>
+                <tr>
+                    <td>CHG54321</td>
+                    <td>Upgrade server hardware</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="text-align: center; margin-top: 400px;">
+        <p>This is a custom HTML built to show the ServiceNow Engagement Messenger capabilities as part of the proof of concept.</p>
+    </div>
+
+</body>
+</html>
